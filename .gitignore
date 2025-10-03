@@ -1,0 +1,17 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Angular build
+dist/
+.tmp/
+out-tsc/
+
+# Environment files (NO subir claves)
+src/environments/environment*.ts
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
