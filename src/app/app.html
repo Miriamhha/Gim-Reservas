@@ -2,8 +2,25 @@
 <h2 class="text-3xl font-bold text-blue-500">Hola Tailwind</h2>
 <h2>Prueba Firebase</h2>
 
-<ul>
+<!-- <ul>
   @for (item of items$ | async; track item.id) {
-    <li>{{ item.NOMBRE }} - {{ item.edad }}</li>
+    <li>{{ item.NOMBRE }} - {{ item.edad }} - {{item.email}}</li>
   }
 </ul>
+<app-login></app-login> -->
+
+
+<!-- Lista de prueba de Firestore -->
+<ul>
+  <li *ngFor="let item of items$ | async">
+    {{ item.nombre }} - {{ item.edad }}
+  </li>
+</ul>
+
+<hr class="my-4 border" />
+
+<!-- Login con Firebase -->
+<app-login></app-login>
+
+<!-- Reservas -->
+<app-reserva></app-reserva>

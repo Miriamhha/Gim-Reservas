@@ -1,0 +1,30 @@
+<!-- src/app/reserva.html -->
+<section class="bg-white p-6 rounded-xl shadow-md">
+  <h3 class="text-2xl font-bold mb-4">Reservar horario</h3>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+    <input formControlName="fecha" type="date" class="border rounded-lg p-2 w-full" />
+    <input formControlName="hora" type="time" class="border rounded-lg p-2 w-full" />
+    <input formControlName="descripcion" placeholder="Descripción" class="border rounded-lg p-2 w-full" />
+    <button type="submit" [disabled]="form.invalid" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow disabled:opacity-60">
+      Reservar
+    </button>
+  </form>
+
+  <h4 class="text-xl font-semibold mb-2">Mis reservas</h4>
+  <ul class="space-y-2">
+    @for ( r of reservas$ | async; track r.id) {
+      <li class="border p-3 rounded-lg flex justify-between items-center">
+        <div>
+          <div class="font-medium">{{ r.fecha }} {{ r.hora }}</div>
+          <div class="text-sm text-gray-600">{{ r.descripcion }} • Estado: {{ r.estado }}</div>
+        </div>
+        <div class="text-xs text-gray-500">
+          {{ r.createdAt?.toDate ? (r.createdAt.toDate() | date:'short') : '' }}
+        </div>
+      </li>
+    }
+    <li *ngIf="(reservas$ | async)?.length === 0" class="text-gray-500">No hay reservas</li>
+  </ul>
+</section>
+
