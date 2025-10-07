@@ -1,26 +1,55 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
-<h2 class="text-3xl font-bold text-blue-500">Hola Tailwind</h2>
-<h2>Prueba Firebase</h2>
+<div class="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+  <h1 class="text-3xl font-bold text-blue-600 mb-6">Reservas del Gimnasio</h1>
 
-<!-- <ul>
-  @for (item of items$ | async; track item.id) {
-    <li>{{ item.NOMBRE }} - {{ item.edad }} - {{item.email}}</li>
-  }
-</ul>
-<app-login></app-login> -->
+  <!-- 🔹 Mostrar botón de inicio o cierre de sesión -->
+  <div class="mb-6">
+    <button
+      *ngIf="!user"
+      (click)="loginGoogle()"
+      class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition"
+    >
+      Iniciar sesión con Google
+    </button>
 
+    <div *ngIf="user" class="flex items-center space-x-3">
+      <img [src]="user.photoURL" alt="perfil" class="w-10 h-10 rounded-full" />
+      <span class="font-semibold">{{ user.displayName }}</span>
+      <button
+        (click)="logout()"
+        class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+      >
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
 
-<!-- Lista de prueba de Firestore -->
-<ul>
-  <li *ngFor="let item of items$ | async">
-    {{ item.nombre }} - {{ item.edad }}
-  </li>
-</ul>
+  <!-- 🔹 Mostrar reservas -->
+  <div *ngIf="user; else noLogin">
+    <h2 class="text-2xl font-semibold mb-4">Horarios disponibles</h2>
 
-<hr class="my-4 border" />
+    <div *ngIf="reservas.length === 0" class="text-gray-500">
+      No hay horarios disponibles.
+    </div>
 
-<!-- Login con Firebase -->
-<app-login></app-login>
+    <div *ngFor="let r of reservas" class="bg-white shadow-md rounded-lg p-4 w-80 mb-4">
+      <p class="text-lg font-semibold text-blue-600">{{ r.tipo | uppercase }}</p>
+      <p>📅 Fecha: {{ r.fecha }}</p>
+      <p>🕓 Hora: {{ r.hora }}</p>
+      <p>Cupos: {{ r.inscritos }}/{{ r.capacidadMaxima }}</p>
 
-<!-- Reservas -->
-<app-reserva></app-reserva>
+      <button
+        (click)="reservarHorario(r)"
+        [disabled]="r.estado === 'lleno'"
+        class="mt-2 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+      >
+        {{ r.estado === 'lleno' ? 'Lleno' : 'Reservar' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- 🔹 Mensaje si no ha iniciado sesión -->
+  <ng-template #noLogin>
+    <p class="text-gray-600">Por favor inicia sesión para ver los horarios.</p>
+  </ng-template>
+</div>
+

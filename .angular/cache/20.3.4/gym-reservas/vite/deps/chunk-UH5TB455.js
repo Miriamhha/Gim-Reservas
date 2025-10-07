@@ -1,20 +1,14 @@
 import {
-  FirebaseApp,
-  FirebaseApps,
-  VERSION,
-  ɵAngularFireSchedulers,
-  ɵgetAllInstancesOf,
-  ɵgetDefaultInstanceOf,
-  ɵzoneWrap
-} from "./chunk-B56LPHQA.js";
-import {
   Component,
   Deferred,
   ErrorFactory,
+  FirebaseApp,
+  FirebaseApps,
   FirebaseError,
   LogLevel,
   Logger,
   SDK_VERSION,
+  VERSION,
   _getProvider,
   _isFirebaseServerApp,
   _registerComponent,
@@ -41,30 +35,32 @@ import {
   querystring,
   querystringDecode,
   registerVersion,
-  updateEmulatorBanner
-} from "./chunk-3RPQX3ZD.js";
+  updateEmulatorBanner,
+  ɵAngularFireSchedulers,
+  ɵgetAllInstancesOf,
+  ɵgetDefaultInstanceOf,
+  ɵzoneWrap
+} from "./chunk-NKTWFUO7.js";
 import {
   InjectionToken,
   Injector,
   NgModule,
   NgZone,
+  Observable,
   Optional,
   PLATFORM_ID,
-  makeEnvironmentProviders,
-  setClassMetadata,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule
-} from "./chunk-HVJA5JAU.js";
-import {
-  Observable,
   __rest,
   concatMap,
   distinct,
   from,
+  makeEnvironmentProviders,
   of,
+  setClassMetadata,
   switchMap,
-  timer
-} from "./chunk-JI2ZN7O6.js";
+  timer,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule
+} from "./chunk-B7S5WXLK.js";
 import {
   __async,
   __superGet
@@ -9878,4 +9874,4 @@ rxfire/auth/index.esm.js:
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-VXHI5UFR.js.map
+//# sourceMappingURL=chunk-UH5TB455.js.map
