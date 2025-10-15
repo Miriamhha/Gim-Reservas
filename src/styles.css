@@ -1,2 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* 🎨 Colores personalizados */
+@layer base {
+  :root {
+    --color-morado: #292332;
+    --color-moradoclaro: #5D4264;
+    --color-claro: #7E7984;
+    --color-textomorado: #915572;
+    --color-boton1: #DEDFE0;
+    --color-boton2: #97649B;
+  }
+}
+
+/* 🧰 Clases utilitarias */
+@layer utilities {
+  .bg-fondoPrincipal { background-color: var(--color-morado); }
+  .bg-fondoSecundario { background-color: var(--color-moradoclaro); }
+  .bg-fondoopcional { background-color: var(--color-claro); }
+  .text-principal{ color: var(--color-boton1); }
+   .text-secundario{ color: var(--color-textomorado); }
+  .bg-button1{ background-color: var(--color-boton2); }
+  .text-button{ color: var(--color-boton1); }
+  .text-texto{ color: var(--color-textomorado); }
+}

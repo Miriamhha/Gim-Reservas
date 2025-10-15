@@ -27,11 +27,14 @@ import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 import { Auth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from '@angular/fire/auth';
 import { ReservasService } from './services/reservas';
 import { Router } from '@angular/router';
+import { Header } from './components/header/header';
+import { Footer} from './components/footer/footer';
+import { Content } from "./components/content/content";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, UpperCasePipe],
+  imports: [CommonModule, Footer, Header, Content],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -128,3 +131,6 @@ export class AppComponent {
     }
   }
 }
+
+
+
