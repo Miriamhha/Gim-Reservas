@@ -3,6 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    
     "gym-reservas": {
       "projectType": "application",
       "schematics": {},
@@ -90,5 +91,6 @@
         }
       }
     }
+    
   }
 }
