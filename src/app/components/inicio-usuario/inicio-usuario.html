@@ -1,4 +1,4 @@
-<main class="min-h-screen p-4 bg-gray-100">
+<main class="min-h-screen p-4 bg-gray-300">
   <div class="max-w-4xl mx-auto space-y-8">
 
     <!-- Mensaje -->
@@ -6,9 +6,9 @@
 
     <!-- Clases Disponibles -->
     <section>
-      <h2 class="text-2xl font-bold text-center text-[var(--color-morado)] mb-4">Clases Disponibles</h2>
+      <h2 class="text-2xl font-bold text-center text-morado mb-4">Clases Disponibles</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div *ngFor="let clase of clases$ | async" class="border rounded-lg p-4 bg-white shadow">
+        <div *ngFor="let clase of clases$ | async" class="border rounded-lg p-4 bg-white shadow text-morado">
           <p><strong>Tipo:</strong> {{ clase.tipo }}</p>
           <p><strong>Instructor:</strong> {{ clase.instructor }}</p>
           <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
@@ -26,12 +26,12 @@
 
     <!-- Reservas del Usuario -->
     <section>
-      <h2 class="text-2xl font-bold text-center text-[var(--color-morado)] mb-4">Mis Reservas</h2>
-      <div *ngIf="(reservas$ | async)?.length === 0" class="text-center text-gray-500">
+      <h2 class="text-2xl font-bold text-center text-morado mb-4">Mis Reservas</h2>
+      <div *ngIf="(reservas$ | async)?.length === 0" class="text-center text-morado">
         No tienes reservas pendientes.
       </div>
       <ul class="space-y-2">
-        <li *ngFor="let reserva of reservas$ | async" class="border rounded-lg p-4 bg-white shadow">
+        <li *ngFor="let reserva of reservas$ | async" class="border rounded-lg p-4 bg-white shadow text-morado">
           <p><strong>Clase:</strong> {{ reserva.tipo }}</p>
           <p><strong>Instructor:</strong> {{ reserva.instructor }}</p>
           <p><strong>Fecha:</strong> {{ reserva.fecha }}</p>

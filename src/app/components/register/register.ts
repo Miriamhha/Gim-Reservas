@@ -22,8 +22,11 @@ export class Register {
   async registrar() {
     this.error = '';
     try {
+      // 🔹 Registrar usuario y actualizar BehaviorSubject
       await this.authService.registrar(this.nombre, this.email, this.password);
-      this.router.navigate(['/']);
+
+      // 🔹 Redirigir a inicio-usuario
+      this.router.navigate(['/inicio-usuario']);
     } catch (e: any) {
       this.error = e.message || 'Error al registrar';
     }

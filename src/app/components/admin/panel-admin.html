@@ -1,74 +1,74 @@
-<main class="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
+<main class="min-h-screen bg-gray-300 p-6 flex flex-col items-center">
   <section class="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8">
-    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+    <h2 class="text-morado text-2xl font-bold text-center mb-6">
       {{ editandoId ? 'Editar Clase' : 'Crear Nueva Clase' }}
     </h2>
 
     <form (ngSubmit)="editandoId ? guardarEdicion() : crearClase()" class="flex flex-col space-y-4">
       <!-- Tipo -->
-      <label class="text-sm font-medium">Tipo de clase</label>
+      <label class="text-xm font-medium text-morado">Tipo de clase</label>
       <select
         [(ngModel)]="clase.tipo"
         name="tipo"
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300 text-botones"
       >
         <option value="grupal">Grupal</option>
         <option value="individual">Individual</option>
       </select>
 
       <!-- Instructor -->
-      <label class="text-sm font-medium">Instructor</label>
+      <label class="text-xm font-medium text-morado">Instructor</label>
       <input
         [(ngModel)]="clase.instructor"
         name="instructor"
         type="text"
         placeholder="Nombre del instructor"
         required
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300 text-botones"
       />
 
       <!-- Fecha y hora -->
       <div class="grid grid-cols-2 gap-3">
         <div>
-          <label class="text-sm font-medium">Fecha</label>
+          <label class="text-xm font-medium text-morado">Fecha</label>
           <input
             [(ngModel)]="clase.fecha"
             name="fecha"
             type="date"
             required
-            class="border border-gray-300 rounded-lg p-2 w-full focus:ring focus:ring-purple-300"
+            class="border border-gray-300 rounded-lg p-2 w-full focus:ring focus:ring-purple-300 text-botones"
           />
         </div>
 
         <div>
-          <label class="text-sm font-medium">Hora</label>
+          <label class="text-xm font-medium text-morado">Hora</label>
           <input
             [(ngModel)]="clase.hora"
             name="hora"
             type="time"
             required
-            class="border border-gray-300 rounded-lg p-2 w-full focus:ring focus:ring-purple-300"
+            class="border border-gray-300 rounded-lg p-2 w-full focus:ring focus:ring-purple-300 text-botones"
           />
         </div>
       </div>
 
       <!-- Capacidad -->
-      <label class="text-sm font-medium">Capacidad Máxima</label>
+      <label class="text-xm text-morado font-medium">Capacidad Máxima</label>
       <input
         [(ngModel)]="clase.capacidadMax"
         name="capacidadMax"
         type="number"
         min="1"
         required
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300 text-botones"
       />
 
       <!-- Estado -->
-      <label class="text-sm font-medium">Estado</label>
+      <label class="text-xm font-medium text-morado">Estado</label>
       <select
         [(ngModel)]="clase.estado"
         name="estado"
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-purple-300 text-botones"
       >
         <option value="disponible">Disponible</option>
         <option value="cerrada">Cerrada</option>
@@ -88,14 +88,14 @@
           *ngIf="editandoId"
           type="button"
           (click)="cancelarEdicion()"
-          class="bg-gray-300 text-gray-800 rounded-lg px-4 py-2 hover:bg-gray-400 transition w-full"
+          class="bg-gray-300 text-morado rounded-lg px-4 py-2 hover:bg-gray-400 transition w-full"
         >
           Cancelar
         </button>
       </div>
 
       <!-- Mensaje -->
-      <p *ngIf="mensaje" class="text-center mt-3 text-sm font-medium text-gray-700">
+      <p *ngIf="mensaje" class="text-center mt-3 text-xm font-medium text-gray-700">
         {{ mensaje }}
       </p>
     </form>
@@ -103,7 +103,7 @@
 
   <!-- 📋 LISTADO DE CLASES -->
   <section class="w-full max-w-5xl bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-    <h2 class="text-xl font-semibold text-[var(--color-morado)] mb-4 text-center">
+    <h2 class="text-xl font-semibold text-morado mb-4 text-center">
       Clases Registradas
     </h2>
 
@@ -111,17 +111,17 @@
       <table class="min-w-full border border-gray-200 text-sm">
         <thead class="bg-purple-100 text-gray-800">
           <tr>
-            <th class="p-2 border">Tipo</th>
-            <th class="p-2 border">Instructor</th>
-            <th class="p-2 border">Fecha</th>
-            <th class="p-2 border">Hora</th>
-            <th class="p-2 border">Capacidad</th>
-            <th class="p-2 border">Estado</th>
-            <th class="p-2 border">Acciones</th>
+            <th class="p-2 border text-morado">Tipo</th>
+            <th class="p-2 border text-morado">Instructor</th>
+            <th class="p-2 border text-morado">Fecha</th>
+            <th class="p-2 border text-morado">Hora</th>
+            <th class="p-2 border text-morado">Capacidad</th>
+            <th class="p-2 border text-morado">Estado</th>
+            <th class="p-2 border text-morado">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let clase of clases$ | async" class="hover:bg-gray-50">
+          <tr *ngFor="let clase of clases$ | async" class="hover:bg-purple-700">
             <td class="p-2 border text-center">{{ clase.tipo }}</td>
             <td class="p-2 border text-center">{{ clase.instructor }}</td>
             <td class="p-2 border text-center">{{ clase.fecha }}</td>
@@ -131,7 +131,7 @@
               <span
                 class="px-2 py-1 rounded text-white text-xs"
                 [ngClass]="{
-                  'bg-green-500': clase.estado === 'disponible',
+                  'bg-fondoPrincipal': clase.estado === 'disponible',
                   'bg-red-500': clase.estado === 'cerrada'
                 }"
               >
@@ -141,7 +141,7 @@
             <td class="p-2 border text-center">
               <button
                 (click)="editarClase(clase)"
-                class="text-blue-600 hover:underline mx-1"
+                class="text-shadow-purple-950 hover:underline mx-1"
               >
                 Editar
               </button>

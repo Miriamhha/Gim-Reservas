@@ -1,45 +1,8 @@
-<!-- <header class="w-full bg-fondoPrincipal text-white shadow-md px-6 py-3 flex items-center justify-between relative"> -->
-  <!-- Logo -->
-  <!-- <div class="flex items-center space-x-3">
-    <img src="/img/logo.png" alt="Logo del gimnasio" class="w-10 h-auto" />
-    <h2 class="text-sm md:text-lg font-bold text-texto">Tu cuerpo es tu templo, cuídalo</h2>
-  </div> -->
-
-  <!-- Botón hamburguesa -->
-  <!-- <button class="block md:hidden focus:outline-none" (click)="toggleMenu()">
-    <span *ngIf="!menuAbierto">☰</span>
-    <span *ngIf="menuAbierto">✕</span>
-  </button> -->
-
-  <!-- Menú grande (desktop) -->
-  <!-- <nav class="hidden md:flex space-x-6 text-sm font-medium">
-    <a routerLink="/" class="hover:text-blue-400 transition">Inicio</a>
-    <a href="#clases-privadas" class="hover:text-blue-400 transition">Clases Privadas</a>
-    <a href="#clases-grupales" class="hover:text-blue-400 transition">Clases Grupales</a>
-    <a href="#noticias" class="hover:text-blue-400 transition">Noticias</a>
-    <a routerLink="/registrar" class="hover:text-blue-400 transition cursor-pointer">Regístrate</a>
-    <a routerLink="/mis-reservas" class="hover:text-blue-400 transition cursor-pointer">reservas</a>
-    <a routerLink="/login" class="hover:text-blue-400 transition cursor-pointer">Iniciar Sesión</a>
-  </nav> -->
-  <!-- Menú móvil -->
-  <!-- <nav
-    [hidden]="!menuAbierto"
-    class="absolute top-full left-0 w-full bg-fondoPrincipal text-white flex flex-col items-center md:hidden z-50"
-  >
-    <a href="#inicio" class="py-2 w-full text-center hover:bg-blue-700 transition">Inicio</a>
-    <a href="#clases-privadas" class="py-2 w-full text-center hover:bg-blue-700 transition">Clases Privadas</a>
-    <a href="#clases-grupales" class="py-2 w-full text-center hover:bg-blue-700 transition">Clases Grupales</a>
-    <a href="#suscribete" class="py-2 w-full text-center hover:bg-blue-700 transition">Regístrate</a>
-    <a href="#noticias" class="py-2 w-full text-center hover:bg-blue-700 transition">Noticias</a>
-  </nav>
-</header> -->
-
-
 <header class="w-full bg-fondoPrincipal text-white shadow-md px-6 py-3 flex items-center justify-between relative">
   <!-- Logo -->
   <div class="flex items-center space-x-3">
     <img src="/img/logo.png" alt="Logo del gimnasio" class="w-10 h-auto" />
-    <h2 class="text-sm md:text-lg font-bold text-texto">Tu cuerpo es tu templo, cuídalo</h2>
+    <h2 class="text-sm md:text-lg font-bold text-morado">Tu cuerpo es tu templo, cuídalo</h2>
   </div>
 
   <!-- Botón hamburguesa -->
@@ -54,14 +17,14 @@
     <a href="#clases-privadas" class="hover:text-blue-400 transition">Clases Privadas</a>
     <a href="#clases-grupales" class="hover:text-blue-400 transition">Clases Grupales</a>
     <a href="#noticias" class="hover:text-blue-400 transition">Noticias</a>
-    <a routerLink="/mis-reservas" class="hover:text-blue-400 transition cursor-pointer">Reservas</a>
+    <!-- <a routerLink="/mis-reservas" class="hover:text-blue-400 transition cursor-pointer">Reservar</a> -->
 
     <!-- 🔹 Mostrar si el usuario está logueado -->
     <ng-container *ngIf="usuarioNombre; else noUsuario">
-      <span class="text-blue-300 font-semibold">👋 Hola, {{ usuarioNombre }}</span>
+      <span class="text-botones font-semibold">👋 Hola, {{ usuarioNombre }}</span>
       <button
         (click)="cerrarSesion()"
-        class="ml-2 text-red-400 hover:text-red-600 transition text-sm"
+        class="ml-2 text-morado hover:text-red-600 transition text-sm"
       >
         Cerrar sesión
       </button>
@@ -83,7 +46,7 @@
     <a href="#clases-privadas" class="py-2 w-full text-center hover:bg-blue-700 transition">Clases Privadas</a>
     <a href="#clases-grupales" class="py-2 w-full text-center hover:bg-blue-700 transition">Clases Grupales</a>
     <a href="#noticias" class="py-2 w-full text-center hover:bg-blue-700 transition">Noticias</a>
-
+    
     <ng-container *ngIf="usuarioNombre; else noUsuarioMobile">
       <p class="py-2 text-center text-blue-300">👋 Hola, {{ usuarioNombre }}</p>
       <button

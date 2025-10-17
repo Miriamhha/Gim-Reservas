@@ -1,26 +1,3 @@
-// import { Component } from '@angular/core';
-// import {CommonModule} from '@angular/common';
-// import { RouterLink } from '@angular/router'; // ✅ IMPORTANTE
-
-// @Component({
-//   selector: 'app-header',
-//   standalone: true,
-//   imports: [CommonModule, RouterLink],
-//   templateUrl: './header.html',
-//   styleUrl: './header.css'
-// })
-// export class Header {
-//   menuAbierto = false;
-//   toggleMenu() {
-//     this.menuAbierto = !this.menuAbierto;   
-//   }
-//   scrollTo(id: string) {
-//     console.log(id);
-//     const el = document.getElementById(id);
-//     if (el) el.scrollIntoView({ behavior: 'smooth' });
-//   }
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
@@ -31,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
-  styleUrl: './header.css'
+  styleUrls: ['./header.css']
 })
 export class Header implements OnInit {
   menuAbierto = false;
@@ -40,12 +17,10 @@ export class Header implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    // ✅ Cargar usuario desde localStorage al iniciar
-    const usuarioGuardado = localStorage.getItem('usuario');
-    if (usuarioGuardado) {
-      const usuario = JSON.parse(usuarioGuardado);
+    // 🔹 Suscribirse al usuario del AuthService
+    this.authService.usuario$.subscribe(usuario => {
       this.usuarioNombre = usuario?.nombre || null;
-    }
+    });
   }
 
   toggleMenu() {
@@ -60,8 +35,6 @@ export class Header implements OnInit {
   async cerrarSesion() {
     try {
       await this.authService.logout();
-      localStorage.removeItem('usuario');
-      this.usuarioNombre = null;
       this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error al cerrar sesión:', error);

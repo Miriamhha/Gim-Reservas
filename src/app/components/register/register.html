@@ -1,40 +1,40 @@
-<main class="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+<main class="min-h-screen flex items-center justify-center p-4 bg-gray-300">
   <div
     class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
   >
-    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+    <h2 class="text-morado text-2xl font-bold text-center mb-6">
       Crear Cuenta Nueva
     </h2>
 
     <form (ngSubmit)="registrar()" class="flex flex-col space-y-3">
-      <label class="block text-sm font-medium mb-1">Nombre</label>
+      <label class="block text-morado text-sm font-medium mb-1">Nombre</label>
       <input
         [(ngModel)]="nombre"
         name="nombre"
         type="text"
         placeholder="Nombre"
         required
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300 text-botones"
       />
 
-      <label class="block text-sm font-medium mb-1">Correo Electrónico</label>
+      <label class="block text-morado text-sm font-medium mb-1">Correo Electrónico</label>
       <input
         [(ngModel)]="email"
         name="email"
         type="email"
         placeholder="Correo Electrónico"
         required
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300 text-botones"
       />
 
-      <label class="block text-sm font-medium mb-1">Contraseña</label>
+      <label class="block text-morado text-sm font-medium mb-1">Contraseña</label>
       <input
         [(ngModel)]="password"
         name="password"
         type="password"
         placeholder="Crea una contraseña"
         required
-        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+         class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300 text-botones"
       />
 
       <button
@@ -50,7 +50,7 @@
 
       <p class="text-sm text-center mt-4">
         ¿Ya tienes una cuenta?
-        <a routerLink="/login" class="text-celeste hover:underline">
+        <a routerLink="/login" class="text-morado hover:underline">
           Inicia sesión aquí
         </a>
       </p>

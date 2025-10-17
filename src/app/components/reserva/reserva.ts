@@ -1,4 +1,4 @@
-// src/app/reserva.ts  (o reserva.component.ts)
+
 import { Component, inject } from '@angular/core';
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';

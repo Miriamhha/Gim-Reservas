@@ -18,8 +18,10 @@
   .bg-fondoPrincipal { background-color: var(--color-morado); }
   .bg-fondoSecundario { background-color: var(--color-moradoclaro); }
   .bg-fondoopcional { background-color: var(--color-claro); }
+  .text-morado { color: var(--color-boton2); }
   .text-principal{ color: var(--color-boton1); }
-   .text-secundario{ color: var(--color-textomorado); }
+  .text-botones{ color: var(--color-claro); }
+  .text-secundario{ color: var(--color-textomorado); }
   .bg-button1{ background-color: var(--color-boton2); }
   .text-button{ color: var(--color-boton1); }
   .text-texto{ color: var(--color-textomorado); }

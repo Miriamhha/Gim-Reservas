@@ -1,13 +1,14 @@
-// src/app/components/inicio-usuario/inicio-usuario.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReservasService, Clase, Reserva } from '../../services/reservas.service';
 import { Observable } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-usuario',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './inicio-usuario.html',
   styleUrls: ['./inicio-usuario.css']
 })
