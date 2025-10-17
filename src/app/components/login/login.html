@@ -1,5 +1,5 @@
 <!-- src/app/login.html -->
-<div class="flex items-center gap-4">
+<!-- <div class="flex items-center gap-4">
   <ng-container *ngIf="user$ | async as user; else loggedOut">
     <div class="text-sm">
       <div class="font-semibold">{{ user.email }}</div>
@@ -16,4 +16,138 @@
       Iniciar con Google
     </button>
   </ng-template>
-</div>
+</div> -->
+
+<!-- <main class="min-h-screen flex items-center justify-center p-4">
+  <section
+    class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
+  >
+    <h2 class="text-secundario text-2xl font-bold text-center mb-6">
+      Iniciar Sesión
+    </h2>
+
+    <form (ngSubmit)="iniciarSesion()" class="space-y-4 flex flex-col">
+      <label for="email" class="block text-sm font-medium mb-1">Correo electrónico</label>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        required
+        placeholder="Ingresa tu correo"
+        class="input-form"
+      />
+
+      <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        required
+        placeholder="Ingresa tu contraseña"
+        class="input-form"
+      />
+
+      <button
+        type="submit"
+        [disabled]="cargando"
+        class="w-full boton text-center py-2"
+      >
+        {{ cargando ? 'Cargando...' : 'Ingresar' }}
+      </button>
+
+      <button
+        type="button"
+        (click)="iniciarConGoogle()"
+        class="mt-3 w-full boton bg-red-500 hover:bg-red-600 text-white text-center py-2"
+      >
+        Ingresar con Google
+      </button>
+
+      <p class="text-sm text-center mt-4">
+        ¿No tienes una cuenta?
+        <a routerLink="/cuenta-usuario" class="text-celeste hover:underline"
+          >Regístrate aquí</a
+        >
+      </p>
+    </form>
+
+    <p *ngIf="mensaje" class="text-center mt-4 text-sm text-gray-700 font-medium">
+      {{ mensaje }}
+    </p>
+  </section>
+</main> -->
+
+
+<main class="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+  <div
+    class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
+  >
+    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+      Iniciar Sesión
+    </h2>
+
+    <form (ngSubmit)="iniciarSesion()" class="flex flex-col space-y-3">
+      <!-- Correo electrónico -->
+      <label class="block text-sm font-medium mb-1">Correo Electrónico</label>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        placeholder="Ingresa tu correo"
+        required
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+      />
+
+      <!-- Contraseña -->
+      <label class="block text-sm font-medium mb-1">Contraseña</label>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        placeholder="Ingresa tu contraseña"
+        required
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+      />
+
+      <!-- Botón principal -->
+      <button
+        type="submit"
+        [disabled]="cargando"
+        class="w-full bg-[var(--color-morado)] text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+      >
+        {{ cargando ? 'Cargando...' : 'Ingresar' }}
+      </button>
+
+      <!-- Botón Google -->
+      <button
+        type="button"
+        (click)="iniciarConGoogle()"
+        class="w-full bg-button1 hover:bg-fondoopcional text-white px-4 py-2 rounded-lg transition flex items-center justify-center space-x-2 mt-2"
+      >
+        <img src="/img/google.png" alt="Google" class="w-5 h-5" />
+        <span>Ingresar con Google</span>
+      </button>
+
+      <!-- Error o mensaje -->
+      <p *ngIf="mensaje" class="text-center text-sm text-gray-700 mt-3">
+        {{ mensaje }}
+      </p>
+
+      <!-- Enlace a registro -->
+      <p class="text-sm text-center mt-4">
+        ¿No tienes una cuenta?
+        <a routerLink="/cuenta-usuario" class="text-celeste hover:underline">
+          Regístrate aquí
+        </a>
+      </p>
+
+      <!-- Recuperar contraseña -->
+      <a
+        routerLink="/recuperar-password"
+        class="block text-xs text-right text-celeste hover:underline mt-2"
+      >
+        ¿Olvidaste tu contraseña?
+      </a>
+    </form>
+  </div>
+</main>

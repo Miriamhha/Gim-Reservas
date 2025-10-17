@@ -1,0 +1,45 @@
+<main class="min-h-screen p-4 bg-gray-100">
+  <div class="max-w-4xl mx-auto space-y-8">
+
+    <!-- Mensaje -->
+    <p *ngIf="mensaje" class="text-green-600 text-center font-medium">{{ mensaje }}</p>
+
+    <!-- Clases Disponibles -->
+    <section>
+      <h2 class="text-2xl font-bold text-center text-[var(--color-morado)] mb-4">Clases Disponibles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div *ngFor="let clase of clases$ | async" class="border rounded-lg p-4 bg-white shadow">
+          <p><strong>Tipo:</strong> {{ clase.tipo }}</p>
+          <p><strong>Instructor:</strong> {{ clase.instructor }}</p>
+          <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
+          <p><strong>Hora:</strong> {{ clase.hora }}</p>
+          <p><strong>Capacidad:</strong> {{ clase.inscritos.length }}/{{ clase.capacidadMax }}</p>
+          <button
+            (click)="reservarClase(clase)"
+            class="mt-2 w-full bg-[var(--color-morado)] text-white py-2 rounded hover:bg-purple-700 transition"
+          >
+            Reservar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservas del Usuario -->
+    <section>
+      <h2 class="text-2xl font-bold text-center text-[var(--color-morado)] mb-4">Mis Reservas</h2>
+      <div *ngIf="(reservas$ | async)?.length === 0" class="text-center text-gray-500">
+        No tienes reservas pendientes.
+      </div>
+      <ul class="space-y-2">
+        <li *ngFor="let reserva of reservas$ | async" class="border rounded-lg p-4 bg-white shadow">
+          <p><strong>Clase:</strong> {{ reserva.tipo }}</p>
+          <p><strong>Instructor:</strong> {{ reserva.instructor }}</p>
+          <p><strong>Fecha:</strong> {{ reserva.fecha }}</p>
+          <p><strong>Hora:</strong> {{ reserva.hora }}</p>
+          <p><strong>Estado:</strong> {{ reserva.estado }}</p>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</main>

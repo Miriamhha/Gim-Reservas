@@ -1,1 +1,60 @@
-<p>register works!</p>
+<main class="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+  <div
+    class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
+  >
+    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+      Crear Cuenta Nueva
+    </h2>
+
+    <form (ngSubmit)="registrar()" class="flex flex-col space-y-3">
+      <label class="block text-sm font-medium mb-1">Nombre</label>
+      <input
+        [(ngModel)]="nombre"
+        name="nombre"
+        type="text"
+        placeholder="Nombre"
+        required
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+      />
+
+      <label class="block text-sm font-medium mb-1">Correo Electrónico</label>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        placeholder="Correo Electrónico"
+        required
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+      />
+
+      <label class="block text-sm font-medium mb-1">Contraseña</label>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        placeholder="Crea una contraseña"
+        required
+        class="border border-gray-300 rounded-lg p-2 focus:ring focus:ring-blue-300"
+      />
+
+      <button
+        type="submit"
+        class="w-full bg-[var(--color-morado)] text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+      >
+        Crear Cuenta
+      </button>
+
+      <p *ngIf="error" class="text-red-600 text-sm text-center mt-2">
+        {{ error }}
+      </p>
+
+      <p class="text-sm text-center mt-4">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login" class="text-celeste hover:underline">
+          Inicia sesión aquí
+        </a>
+      </p>
+    </form>
+  </div>
+</main>
+
