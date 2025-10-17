@@ -13,13 +13,14 @@
 
   <!-- Menú grande (desktop) -->
   <nav class="hidden md:flex space-x-6 text-sm font-medium">
-    <a href="#inicio" class="hover:text-blue-400 transition">Inicio</a>
+    <a routerLink="/" class="hover:text-blue-400 transition">Inicio</a>
     <a href="#clases-privadas" class="hover:text-blue-400 transition">Clases Privadas</a>
     <a href="#clases-grupales" class="hover:text-blue-400 transition">Clases Grupales</a>
-    <a href="#suscribete" class="hover:text-blue-400 transition">Regístrate</a>
     <a href="#noticias" class="hover:text-blue-400 transition">Noticias</a>
+    <a routerLink="/registrar" class="hover:text-blue-400 transition cursor-pointer">Regístrate</a>
+    <a routerLink="/mis-reservas" class="hover:text-blue-400 transition cursor-pointer">reservas</a>
+    <a routerLink="/login" class="hover:text-blue-400 transition cursor-pointer">Iniciar Sesión</a>
   </nav>
-
   <!-- Menú móvil -->
   <nav
     [hidden]="!menuAbierto"
